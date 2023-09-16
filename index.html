@@ -4,157 +4,141 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dirty Beach | Home</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <nav class="flex justify-between items-center box-border h-[15vh] px-8 py-4 relative shadow-md">
+
+    <nav class="bg-white flex justify-between sticky top-0 z-50 items-center box-border h-[10vh] px-8 shadow-md">
 
         <div class="flex flex-row gap-8 items-center">
-            <a href="index.html"><img class="h-24" src="static/images/logo_no_sub.png" alt=""></a>
-            <button><a class="text-black font-medium text-xl hover:text-blue-500" href="#services">Services</a></button>
+            <a href="index.html"><img class="h-16" src="static/images/logo_no_sub.png" alt=""></a>
+            <a class="text-black font-light text-lg hover:text-blue-500" href="#services">Services</a>
+            <a class="text-black font-light text-lg hover:text-blue-500" href="#reviews">Reviews</a>
+            <a class="text-black font-light text-lg hover:text-blue-500" href="#about-me">About Me</a>
         </div>
-        
-        <!-- <div class="w-48 h-48 rounded-full bg-yellow-300 absolute -top-8 left-0"></div> -->
 
         <div class="flex gap-4 items-center">
-            <h4 class="font-medium">Call (850)-329-8814</h4>
-            <button class="p-4 h-fit w-fit bg-sky-500 rounded-full">
-                <a class="text-white font-medium" href="https://www.facebook.com/dirtybeachlaundry">Facebook</a>
-            </button>
-            <button class="p-4 h-fit w-fit bg-sky-500 rounded-full flex items-center gap-1">
-                <img src="static/images/decorations/calendar.svg" alt="">
-                <a class="text-white font-medium" href="">Book your cleaning here</a>
-                <img src="static/images/decorations/arrow-right.svg" alt="">
-            </button>
+            <a class="h-fit w-fit font-light text-lg" href="tel:8503298814"><span></span><img src="static/images/decorations/phone.svg" alt="" class="h-6 inline-block mr-2">Call (850) 329-8814</a>
+            <a class="px-4 py-2 h-fit w-fit bg-sky-500 rounded-full text-white font-light text-lg" href="https://www.facebook.com/dirtybeachlaundry">Facebook</a>
         </div>
 
     </nav>
-    <main>
-        <section class="relative overflow-hidden h-[85vh]">
 
-            <img class="h-[85vh] object-cover w-full brightness-50" src="static/images/beach_image.jpg" alt="">
+    <main>
+
+        <!-- HERO -->
+        <section class="relative overflow-hidden h-[90vh]">
+
+            <img class="h-full object-cover w-full brightness-50" src="static/images/beach_image.jpg" alt="">
     
             <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center w-full gap-4 lg:w-1/2 rounded-3xl">
-                <!-- <p class="text-2xl font-medium text-center leading-tight text-white">Get your property beachy clean with</p> -->
                 <img class="h-72" src="static/images/logo_circle_gradient.png" alt="">
-                <!-- <p class="text-4xl tracking-tight font-bold text-center text-white">Dirty Beach Laundry & Cleaning Service, LLC.</p> -->
-                <p class="text-xl mx-2 italic font-medium text-center text-white">Providing professional residential, VRBO, and Airbnb cleaning services in Franklin, Wakulla, and Leon counties.</p>
-                <a href=""><button class="p-4 text-white font-medium text-lg m-4 bg-sky-500 rounded-full">Get your free estimate</button></a>
+                <p class="text-xl mx-4 italic font-medium text-center text-white">Providing professional residential, VRBO, and Airbnb cleaning services in Franklin, Wakulla, and Leon counties.</p>
+                <a class="p-4 text-white font-medium text-lg m-4 bg-sky-500 rounded-full" href="">Get your free estimate</a>
             </div>
             
         </section>
+
+        <!-- COMPANY BIO -->
+        <article id="company-bio" class="p-32 bg-blue-500 flex gap-8 flex-col items-center">
+            <p class="text-5xl tracking-tight font-medium text-white">More Than Cleaning, We Care!</p>
+            <p class="w-1/2 text-lg text-white text-center pb-32">At Dirty Beach, your home isn't just another task on our list—it's a commitment. Servicing Franklin, Wakulla, and Leon counties, we go beyond the surface to create spaces that you're proud to call home. Our passion? Serving you with care, one clean home at a time.</p>
+        </article>
+
+        <!-- SERVICES -->
+        <article id="services" class="lg:h-[75vh] -mt-40 overflow-hidden px-16">
     
-        <section id="services" class="relative overflow-hidden p-8">
-            
-            <div class="absolute aspect-[960/100] w-[960px] lg:w-full bg-no-repeat bg-center rotate-180 left-0 top-0 bg-cover" style="background-image: url('static/images/decorations/wave_bottom.svg');"></div>
+            <div class="border-2 w-full h-full flex flex-col justify-center rounded-3xl shadow-md bg-white">
     
-            <div class="border-2 pt-24 w-full rounded-3xl shadow-md bg-white">
-    
-                <p class="text-center text-4xl tracking-tight font-semibold">Our tried-and-true cleaning routine</p>
-                <p class="text-center text-2xl tracking-tight font-semibold m-4">Maintanence Cleaning Details</p>
-                <div class="grid grid-cols-3 divide-x h-full mt-4">
-                    <div class="">
-                        <p class="text-center text-lg font-medium">Common Areas/Bedrooms</p>
-                        <ul class="text-center my-4">
-                            <li>Dust All Surfaces</li>
-                            <li>Dust Baseboards, Light Fixtures & Ceiling Fans</li>
-                            <li>General Tidying</li>
-                            <li>Mirrors</li>
-                            <li>Empty Trash</li>
-                            <li>Make Beds (Change sheets if added)</li>
-                            <li>Vacuum/Mop Floors</li>
-                            <li>Vacuum Carpet/Rugs/Stairs</li>
-                        </ul>
-                    </div>
-                    <div class="">
-                        <p class="text-center text-lg font-medium">Kitchen</p>
-                        <ul class="text-center my-4">
-                            <li>Dust Baseboards, Light Fixtures & Ceiling Fans</li>
-                            <li>Dust Blinds & Windowsills</li>
-                            <li>Sanitize Tables & Chairs</li>
-                            <li>Empty Trash/Exterior of Trash Can</li>
-                            <li>Sanitize Countertops</li>
-                            <li>Sanitize Sink</li>
-                            <li>Load Dishwasher (if empty)</li>
-                            <li>Exterior/Interior Microwave</li>
-                            <li>Exterior Fridge/Oven</li>
-                            <li>Spot Clean Cabinets</li>
-                            <li>Vacuum/Mop Floors</li>
-                        </ul>
-                    </div>
-                    <div class="">
-                        <p class="text-center text-lg font-medium">Bathrooms</p>
-                        <ul class="text-center my-4">
-                            <li>Dust Baseboards & Light Fixtures</li>
-                            <li>Dust Blinds & Windowsills</li>
-                            <li>General Tidying Up</li>
-                            <li>Spot Clean Cabinets</li>
-                            <li>Mirrors</li>
-                            <li>Empty Trash</li>
-                            <li>Sanitize Countertops</li>
-                            <li>Clean & Sanitize Toilets</li>
-                            <li>Scrub & Sanitize Shower/Tub</li>
-                            <li>Vacuum/Mop Floors</li>
-                        </ul>
-                    </div>
-                </div>
-    
-                <p class="text-center text-2xl tracking-tight font-semibold">Deep Cleaning Details</p>
-                <div class="grid grid-cols-3 divide-x h-full mt-4">
-                    <div class="">
-                        <p class="text-center text-lg font-medium">Common Areas/Bedrooms</p>
-                        <ul class="text-center my-4">
-                            <li>Dust All Surfaces</li>
-                            <li>Dust Baseboards, Light Fixtures & Ceiling Fans</li>
-                            <li>General Tidying</li>
-                            <li>Mirrors</li>
-                            <li>Empty Trash</li>
-                            <li>Make Beds (Change sheets if added)</li>
-                            <li>Vacuum/Mop Floors</li>
-                            <li>Vacuum Carpet/Rugs/Stairs</li>
-                        </ul>
-                    </div>
-                    <div class="">
-                        <p class="text-center text-lg font-medium">Kitchen</p>
-                        <ul class="text-center my-4">
-                            <li>Dust Baseboards, Light Fixtures & Ceiling Fans</li>
-                            <li>Dust Blinds & Windowsills</li>
-                            <li>Sanitize Tables & Chairs</li>
-                            <li>Empty Trash/Exterior of Trash Can</li>
-                            <li>Sanitize Countertops</li>
-                            <li>Sanitize Sink</li>
-                            <li>Load Dishwasher (if empty)</li>
-                            <li>Exterior/Interior Microwave</li>
-                            <li>Exterior Fridge/Oven</li>
-                            <li>Spot Clean Cabinets</li>
-                            <li>Vacuum/Mop Floors</li>
-                        </ul>
-                    </div>
-                    <div class="">
-                        <p class="text-center text-lg font-medium">Bathrooms</p>
-                        <ul class="text-center my-4">
-                            <li>Dust Baseboards & Light Fixtures</li>
-                            <li>Dust Blinds & Windowsills</li>
-                            <li>General Tidying Up</li>
-                            <li>Spot Clean Cabinets</li>
-                            <li>Mirrors</li>
-                            <li>Empty Trash</li>
-                            <li>Sanitize Countertops</li>
-                            <li>Clean & Sanitize Toilets</li>
-                            <li>Scrub & Sanitize Shower/Tub</li>
-                            <li>Vacuum/Mop Floors</li>
-                        </ul>
-                    </div>
+                <p class="text-center text-4xl tracking-tight font-medium text-blue-950">Our tried-and-true cleaning checklist</p>
+                <div class="mt-16 w-full flex flex-col lg:flex-row justify-around">
+                    <ul class="list-disc flex flex-col gap-4">
+                        <li>Dust all surfaces</li>
+                        <li>Dust baseboards</li>
+                        <li>Dust light fixtures and ceiling fans</li>
+                        <li>Dust blinds & windowsills</li>
+                        <li>General tidying</li>
+                        <li>Mirrors</li>
+                        <li>Empty trash</li>
+                        <li>Make beds</li>
+                        <li>Vacuum floors</li>
+                    </ul>
+                    <ul class="list-disc flex flex-col gap-4">    
+                        <li>Mop floors</li>
+                        <li>Vacuum carpet</li>
+                        <li>Vacuum stairs</li>
+                        <li>Vacuum rugs</li>
+                        <li>Sanitize tables and chairs</li>
+                        <li>Sanitize countertops</li>
+                        <li>Sanitize sink</li>
+                        <li>Load dishwasher</li>
+                        <li>Exterior microwave</li>
+                    </ul>
+                    <ul class="list-disc flex flex-col gap-4">
+                        <li>Spot clean cabinets</li>
+                        <li>Clean and sanitize toilets</li>
+                        <li>Scrub and sanitize shower/tub</li>
+                        <li>Dust/wipe all baseboards</li>
+                        <li>Dust/wipe switches</li>
+                        <li>Dust/wipe outlets</li>
+                        <li>Wipe doors/frames</li>
+                        <li>Dust/wet wipe crevices on furniture</li>
+                        <li>One load of dishes</li>
+                    </ul>
+                    <ul class="list-disc flex flex-col gap-4">
+                        <li>Interior microwave</li>
+                        <li>Exterior fridge</li>
+                        <li>Exterior oven</li>
+                        <li>Detailed scrub on toilets</li>
+                        <li>Oven interior (extra)</li>
+                        <li>Fridge interior (extra)</li>
+                        <li>Laundry (extra)</li>
+                        <li>Change all sheets (extra)</li>
+                        <li>Spot clean all walls (extra)</li>
+                    </ul>
                 </div>
             </div>
-            
-        </section>
+        
+        </article>
+
+        <!-- REASONS -->
+        <article id="reasons" class="flex flex-col  my-16 items-center justify-center h-[50vh] bg-blue-50">
+            <p class="text-center text-4xl tracking-tight font-medium text-blue-950">Three reasons to choose Dirty Beach</p>
+            <div class="flex gap-8 mt-16">
+                <div class="flex flex-col items-center w-64">
+                    <img class="h-16" src="static/images/decorations/award-badge.svg" alt="">
+                    <p class="text-center">Live stress free knowing your home is getting a quality clean</p>
+                </div>
+                <div class="flex flex-col items-center w-64">
+                    <img class="h-16" src="static/images/decorations/eco.svg" alt="">
+                    <p class="text-center">All our products be eco</p>
+                </div>
+                <div class="flex flex-col items-center w-64">
+                    <img class="h-16" src="static/images/decorations/handshake.svg" alt="">
+                    <p class="text-center">Same people each time</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- REVIEWS -->
+        <article id="reviews" class="">
+
+        </article>
+
+        <!-- ABOUT ME -->
+        <article id="about-me" class="">
+
+        </article>
+
     </main>
+
     <footer class="h-36 bg-orange-200 shadow-inner relative">
 
         <p>DBA Dirty Beach Laundry and Cleaning Service LLC</p>
-        
-        <img class="w-36 h-36 absolute right-0 bottom-0 mr-4" src="static/images/decorations/vector_cleaning.png" alt="">
+        <img class="w-36 h-36 absolute right-0 bottom-0 mr-4" src="static/images/decorations/vector_mop.png" alt="">
+
     </footer>
+
 </body>
 </html>
