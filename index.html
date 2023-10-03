@@ -9,21 +9,26 @@
 </head>
 <body>
 
-    <nav class="bg-white flex justify-between sticky top-0 z-50 items-center box-border h-[10vh] px-8 shadow-md">
+    <nav x-data="{ open: false }" x-bind:class="{ 'flex-col': open }" class="bg-white flex justify-between sticky top-0 z-50 items-center box-border md:h-[10vh] shadow-xl">
 
-        <a href="index.html"><img class="h-16" src="static/images/logo_no_sub.png" alt=""></a>
+        <div class="w-full md:w-auto flex justify-between px-8">
+            <a href="index.html"><img x-bind:class="{ 'float-left': open }" class="h-16" src="static/images/logo_no_sub.png" alt=""></a>
+            <button class="md:hidden" @click="open = !open">Menu</button>
+        </div>
 
-        <!-- 
-        <div class="flex flex-row gap-8 items-center">
-            <a class="text-black font-light text-lg hover:text-blue-500" href="index.html#services">Services</a>
-            <a class="text-black font-light text-lg hover:text-blue-500" href="#reviews">Reviews</a>
-            <a class="text-black font-light text-lg hover:text-blue-500" href="#about-me">About Me</a>
-        </div> -->
+        <div class="hidden md:flex gap-8 items-center mr-8">
+            <a class="h-fit w-fit font-light text-lg" href="tel:8503298814"><img src="static/images/decorations/phone.svg" alt="" class="h-6 inline-block mr-2">Call (850) 329-8814</a>
+            <a class="px-4 py-2 h-fit w-fit bg-sky-500 rounded-full text-white shadow-md font-light text-lg" href="contact.html">Contact Us</a>
+            <a class="px-4 py-2 h-fit w-fit bg-sky-500 rounded-full text-white shadow-md font-light text-lg" href="https://www.facebook.com/dirtybeachlaundry">Facebook</a>
+        </div>
 
-        <div class="flex gap-4 items-center">
-            <a class="h-fit w-fit font-light text-lg" href="tel:8503298814"><span></span><img src="static/images/decorations/phone.svg" alt="" class="h-6 inline-block mr-2">Call (850) 329-8814</a>
-            <a class="px-4 py-2 h-fit w-fit bg-sky-500 rounded-full text-white font-light text-lg" href="contact.html">Contact Us</a>
-            <!-- <a class="px-4 py-2 h-fit w-fit bg-sky-500 rounded-full text-white font-light text-lg" href="https://www.facebook.com/dirtybeachlaundry">Facebook</a> -->
+
+        <div x-show="open" @click.away="open = false" class="relative shadow-inner flex-col bg-neutral-200 w-full flex gap-4 items-center py-8">
+            <a class="h-fit w-fit font-light text-lg" href="tel:8503298814"><img src="static/images/decorations/phone.svg" alt="" class="h-6 inline-block mr-2">Call (850) 329-8814</a>
+            <div class="flex gap-4">
+                <a class="px-4 py-2 h-fit w-fit bg-sky-500 rounded-full text-white shadow-md font-light text-lg" href="contact.html">Contact Us</a>
+                <a class="px-4 py-2 h-fit w-fit bg-sky-500 rounded-full text-white shadow-md font-light text-lg" href="https://www.facebook.com/dirtybeachlaundry">Facebook</a>
+            </div>
         </div>
 
     </nav>
@@ -31,35 +36,35 @@
     <main>
 
         <!-- HERO -->
-        <section class="relative overflow-hidden h-[90vh]">
+        <section class="relative overflow-hidden h-[75vh] md:h-[90vh]">
 
             <img class="h-full object-cover w-full brightness-50" src="static/images/beach_image.jpg" alt="">
     
-            <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center w-full gap-4 lg:w-1/2 rounded-3xl">
+            <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center w-full gap-4 md:w-1/2 rounded-3xl">
                 <img class="h-72" src="static/images/logo_circle_gradient.png" alt="">
                 <p class="text-xl mx-4 italic font-medium text-center text-white">Providing professional residential, VRBO, and Airbnb cleaning services in Franklin, Wakulla, and Leon counties.</p>
-                <a class="p-4 text-white font-medium text-lg m-4 bg-sky-500 rounded-full" href="">Get your free estimate</a>
+                <a class="px-4 py-2 h-fit w-fit bg-sky-500 rounded-full text-white font-medium shadow-md text-xl" href="contact.html">Contact Us</a>
             </div>
             
         </section>
 
         <!-- COMPANY BIO -->
-        <article id="company-bio" class="py-32 bg-blue-500 flex gap-8 flex-col items-center">
-            <p class="text-5xl tracking-tight font-medium text-white">More Than Cleaning, We Care!</p>
-            <p class="w-1/2 text-lg text-white text-center pb-32">At Dirty Beach, your home isn't just another task on our list—it's a commitment. Servicing Franklin, Wakulla, and Leon counties, we go beyond the surface to create spaces that you're proud to call home. Our passion? Serving you with care, one clean home at a time.</p>
+        <article id="company-bio" class="py-32 bg-blue-500 flex gap-8 flex-col items-center shadow-inner">
+            <p class="text-3xl text-center md:text-5xl tracking-tight font-medium text-white">More Than Cleaning, We Care!</p>
+            <p class="w-3/4 md:w-1/2 text-lg text-white text-center pb-32">At Dirty Beach, your home isn't just another task on our list—it's a commitment. Servicing Franklin, Wakulla, and Leon counties, we go beyond the surface to create spaces that you're proud to call home. Our passion? Serving you with care, one clean home at a time.</p>
         </article>
 
-        <article id="services" class="-mt-40 overflow-hidden px-16">
+        <article id="services" class="-mt-40 overflow-hidden px-8 md:px-16">
 
             <div class="border-2 w-full h-full flex flex-col py-8 justify-center rounded-3xl shadow-md bg-white">
         
-                <p class="text-center text-4xl tracking-tight font-medium text-blue-950">Our tried-and-true cleaning checklist</p>
+                <p class="text-center text-3xl md:text-4xl tracking-tight font-medium text-blue-950">Our tried-and-true cleaning checklist</p>
                 
-                <div class="mt-8 w-full flex flex-col lg:flex-row justify-around">
+                <div class="mt-8 w-full flex flex-col md:flex-row justify-around">
                     
                     <!-- Maintenance Clean -->
-                    <div class="flex flex-col items-center gap-8 p-4">
-                        <h2 class="text-xl font-semibold text-blue-950">Maintenance Clean</h2>
+                    <div class="flex flex-col px-8 md:items-center gap-8 p-4">
+                        <h2 class="text-xl text-center font-semibold text-blue-950">Maintenance Clean</h2>
                         <ul class="list-disc flex flex-col gap-4">
                             <li>Dust all surfaces</li>
                             <li>Dust baseboards</li>
@@ -74,8 +79,8 @@
                     </div>
         
                     <!-- Deep Clean -->
-                    <div class="flex flex-col items-center gap-8 p-4">
-                        <h2 class="text-xl font-semibold text-blue-950">Deep Clean</h2>
+                    <div class="flex flex-col px-8 md:items-center gap-8 p-4">
+                        <h2 class="text-xl text-center font-semibold text-blue-950">Deep Clean</h2>
                         <ul class="list-disc flex flex-col gap-4">    
                             <li>Mop floors</li>
                             <li>Vacuum carpet</li>
@@ -90,8 +95,8 @@
                     </div>
         
                     <!-- Add-ons -->
-                    <div class="flex flex-col items-center gap-8 p-4">
-                        <h2 class="text-xl font-semibold text-blue-950">Add-ons</h2>
+                    <div class="flex flex-col px-8 md:items-center gap-8 p-4">
+                        <h2 class="text-xl text-center font-semibold text-blue-950">Add-ons</h2>
                         <ul class="list-disc flex flex-col gap-4">
                             <li>Clean and sanitize toilets</li>
                             <li>Scrub and sanitize shower/tub</li>
@@ -109,23 +114,22 @@
             </div>
         
         </article>
-        
 
         <!-- REASONS -->
-        <article id="reasons" class="flex flex-col  my-16 items-center justify-center h-[50vh] bg-blue-50">
-            <p class="text-center text-4xl tracking-tight font-medium text-blue-950">Three reasons to choose Dirty Beach</p>
-            <div class="flex gap-8 mt-16">
-                <div class="flex flex-col items-center w-64">
+        <article id="reasons" class="flex flex-col mt-16 items-center justify-center p-8 md:h-[50vh] shadow-inner bg-blue-50">
+            <p class="text-center text-3xl md:text-4xl tracking-tight font-medium text-blue-950">Live Stress Free Knowing that</p>
+            <div class="flex flex-col md:flex-row md:gap-8 mt-8">
+                <div class="flex flex-col items-center p-4 w-64">
                     <img class="h-16" src="static/images/decorations/award-badge.svg" alt="">
-                    <p class="text-center">Live stress free knowing your home is getting a quality clean</p>
+                    <p class="text-center">Your home is getting a quality clean we're proud of</p>
                 </div>
-                <div class="flex flex-col items-center w-64">
+                <div class="flex flex-col items-center p-4 w-64">
                     <img class="h-16" src="static/images/decorations/eco.svg" alt="">
-                    <p class="text-center">All our products be eco</p>
+                    <p class="text-center">All of our products are eco-friendly and sustainably sourced</p>
                 </div>
-                <div class="flex flex-col items-center w-64">
+                <div class="flex flex-col items-center p-4 w-64">
                     <img class="h-16" src="static/images/decorations/handshake.svg" alt="">
-                    <p class="text-center">Same people each time</p>
+                    <p class="text-center">Your home will be serviced by the same trusted person each time</p>
                 </div>
             </div>
         </article>
@@ -142,10 +146,14 @@
 
     </main>
 
-    <footer class="h-36 bg-orange-200 shadow-inner relative">
+    <footer class="bg-orange-200 shadow-inner">
 
-        <p>DBA Dirty Beach Laundry and Cleaning Service LLC</p>
-        <img class="w-36 h-36 absolute right-0 bottom-0 mr-4" src="static/images/decorations/vector_mop.png" alt="">
+        <div class="relative pt-8">
+            <p class="text-xl mx-4 italic font-medium text-center text-white">DBA Dirty Beach Laundry and Cleaning Service LLC</p>
+            <img class="w-32 h-32 absolute right-0 bottom-0 mr-4" src="static/images/decorations/vector_mop.png" alt="">
+
+            <div class="h-32 w-32"></div>
+        </div>
 
     </footer>
 
