@@ -1,1 +1,3 @@
 tailwind.config.js
+.DS_Store
+.prettierrc
