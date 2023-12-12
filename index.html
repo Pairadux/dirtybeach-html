@@ -7,40 +7,40 @@
     <title>Dirty Beach | Home</title>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/styles.css">
 </head>
 
 <body>
 
+    <!-- TODO: Make navbar screen height on mobile, take inspiration from linktree -->
     <nav class="sticky top-0 z-50 flex justify-center bg-white">
 
-        <div x-data="{ open: false }" :class="{ 'flex-col': open }"
-            class="flex items-center justify-between container px-6">
+        <div x-data="{ open: false }" :class="{ 'flex-col': open }" class="flex items-center justify-between container px-6">
 
             <!-- Menu Bar w/ hidden Menu Button -->
             <div class="flex w-full justify-between items-center md:mx-0 md:w-fit">
-                <a href="index.html"><img :class="{ 'float-left': open }" class="h-20"
-                        src="static/images/logo_no_sub.png" alt="" /></a>
-                <button class="md:hidden text-lg font-light px-6 py-3 rounded-full text-white bg-blue-500"
-                    @click="open = !open">Menu</button>
+                <a href="index.html"><img :class="{ 'float-left': open }" class="h-20" src="static/images/logo_no_sub.png" alt="" /></a>
+                <button class="md:hidden text-lg  px-6 py-3 rounded-full text-white bg-blue-500" @click="open = !open">Menu</button>
             </div>
 
             <!-- md:Navbar -->
             <div class="hidden items-center gap-8 md:flex">
-                <a class="h-fit w-fit text-lg font-light" href="tel:8503298814">(850) 329-8814</a>
-                <a class="h-fit w-fit text-lg font-light" href="https://www.facebook.com/dirtybeachlaundry">Facebook</a>
-                <a class="h-fit w-fit rounded-full bg-sky-500 px-4 py-2 text-lg font-light text-white shadow-md"
-                    href="contact.html">Contact Us</a>
+                <a class="h-fit w-fit text-lg " href="tel:8503298814">(850) 329-8814</a>
+                <a class="h-fit w-fit text-lg " href="https://www.facebook.com/dirtybeachlaundry">Facebook</a>
+                <a class="h-fit w-fit rounded-full bg-sky-500 px-4 py-2 text-lg  text-white shadow-md" href="contact.html">Contact Us</a>
             </div>
 
             <!-- Small screen Navbar -->
             <!-- TODO: Merge small navbar with md:Navbar -->
             <!-- FIXME: Improve mobile menu appearance -->
-            <div x-show="open" @click.away="open = false"
-                class="relative flex w-full flex-col items-center gap-4 bg-blue-50 py-8 shadow-inner">
-                <a class="h-fit w-fit text-lg font-light" href="tel:8503298814"><img src="static/images/decorations/phone.svg" alt="" class="mr-2 inline-block h-6" />Call (850) 329-8814</a>
+            <div x-show="open" @click.away="open = false" class="relative flex w-full flex-col items-center gap-4 bg-blue-50 py-8 shadow-inner">
+                <a class="h-fit w-fit text-lg " href="tel:8503298814"><img src="static/images/decorations/phone.svg" alt="" class="mr-2 inline-block h-6" />Call (850) 329-8814</a>
                 <div class="flex gap-4">
-                    <a class="h-fit w-fit rounded-full bg-sky-500 px-4 py-2 text-lg font-light text-white shadow-md" href="contact.html">Contact Us</a>
-                    <a class="h-fit w-fit rounded-full bg-sky-500 px-4 py-2 text-lg font-light text-white shadow-md" href="https://www.facebook.com/dirtybeachlaundry">Facebook</a>
+                    <a class="h-fit w-fit rounded-full bg-sky-500 px-4 py-2 text-lg text-white shadow-md" href="contact.html">Contact Us</a>
+                    <a class="h-fit w-fit rounded-full bg-sky-500 px-4 py-2 text-lg text-white shadow-md" href="https://www.facebook.com/dirtybeachlaundry">Facebook</a>
                 </div>
             </div>
 
@@ -57,10 +57,12 @@
             <img class="h-[48rem] w-full object-cover brightness-50 xl:h-[52rem] 2xl:h-[56rem]" src="static/images/beach_image.jpg" alt="" />
 
             <!-- Company logo and mini-bio -->
-            <div class="absolute left-1/2 top-1/2 w-full flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-4">
+            <div class="absolute left-1/2 top-1/2 w-full flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-6">
+                <p class="great-vibes text-center text-white text-2xl sm:text-3xl lg:text-4xl xl:text-5xl">Welcome to<br>Dirty Beach Cleaning</p>
                 <img class="h-64 sm:h-72 xl:h-80" src="static/images/logo_circle_gradient.png" alt="" />
-                <p class="px-4 text-center font-normal italic text-white text-lg w-full sm:w-[28rem] md:w-[28rem] xl:w-[32rem] sm:text-xl xl:text-2xl">Providing Professional Residential, VRBO, and Airbnb Cleaning Services in Franklin, Wakulla, and Leon Counties.</p>
-                <a class="h-fit w-fit rounded-full bg-sky-500 px-5 py-3 font-light text-white shadow-md text-lg sm:text-xl xl:text-2xl" href="contact.html">Contact Us</a>
+                <p class="px-4 text-center italic text-white text-lg w-full sm:w-[28rem] md:w-[28rem] xl:w-[32rem] sm:text-xl xl:text-2xl">Providing Professional Residential, VRBO, and Airbnb Cleaning Services in Franklin, Wakulla, and Leon Counties.</p>
+                <a class="h-fit w-fit rounded-full bg-sky-500 px-5 py-3 text-white shadow-md text-lg sm:text-xl xl:text-2xl" href="contact.html">Contact Us</a>
+                <p class="text-white my-12 text-xl">Weekly • Bi-Weekly • Monthly • As Needed</p>
             </div>
 
         </header>
@@ -76,7 +78,7 @@
 
                 <!-- Bio -->
                 <div class="space-y-8 px-2 sm:w-5/6 lg:w-3/4">
-                    <p class="text-center px-2 font-medium tracking-tight text-white text-2xl sm:text-3xl lg:text-4xl xl:text-5xl">More Than Cleaning, We Care!</p>
+                    <p class="great-vibes text-center px-2  tracking-tight text-white text-2xl sm:text-3xl lg:text-4xl xl:text-5xl">We Dont Just Clean, We Care!</p>
                     <p class="text-center text-white px-4 lg:px-0 text-lg sm:text-xl xl:text-2xl">At Dirty Beach, Your Home Isn't Just Another Task on Our List—It's a Commitment. Servicing Franklin, Wakulla, and Leon Counties, We Go Beyond the Surface to Create Spaces That You're Proud to Call Home. Our Passion? Serving You with Care, One Clean Home at a Time.</p>
                 </div>
 
@@ -92,10 +94,13 @@
 
             <div class="flex h-full w-fit flex-col px-2 lg:px-12 xl:px-16 2xl:px-24 justify-center items-center rounded-3xl border-2 box-border bg-white shadow-md">
 
-                <p class="my-8 sm:my-16 text-center font-medium tracking-tight text-blue-950 text-2xl sm:text-3xl lg:text-4xl xl:text-5xl">Our Tried-and-True Cleaning Checklist</p>
+                <div class="my-8 sm:my-16 text-center">
+                    <p class="tracking-tight text-blue-950 text-2xl sm:text-3xl lg:text-4xl xl:text-5xl">Maintanence Cleaning Checklist</p>
+                    <p class="my-1 text-sm">(Example: not limited to, as each home is customized)</p>
+                </div>
 
                 <!-- FIXME: Convert to 3 seperate ul's -->
-                <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 sm:gap-x-4 md:gap-x-0 lg:gap-x-4 xl:gap-x-14 2xl:gap-x-48 gap-y-2 sm:gap-y-4 lg:gap-y-6 2xl:gap-y-8 mb-12 sm:list-inside list-image-[url(static/images/list-image/checkbox.png)] xl:text-lg">
+                <ul id="checklist" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 sm:gap-x-4 md:gap-x-0 lg:gap-x-4 xl:gap-x-14 2xl:gap-x-48 gap-y-2 sm:gap-y-4 lg:gap-y-6 2xl:gap-y-8 sm:list-inside list-image-[url(static/images/list-image/checkbox.png)] xl:text-lg">
                     <li>Wipe counters & Cabinet Doors</li>
                     <li>Clean backsplash</li>
                     <li>Shine appliances & sink</li>
@@ -119,43 +124,40 @@
                     <li>Clean toilet inside & out</li>
                     <li>Clean shower and/or bathtub</li>
                     <li>Straighten or replace towels</li>
-                    <li>Clean walls & baseboards</li>
+                    <li>Dust baseboards</li>
                 </ul>
-                <!--                     
-                    <div class="my-8 w-full bg-sky-100 p-8 box-border shadow-inner">
-                        <h2 class="text-center text-2xl font-bold 2xl:text-4xl">Introducing Our New Service!</h2>
-                        <p class="mt-4 text-center 2xl:text-xl">Now Offering: Property Maintanence & Small Repairs</p>
-                    </div> -->
+                
+                <p class="my-16 italic text-lg">Our DEEP cleans...are more thorough and customizable to each home!</p>
 
             </div>
 
         </article>
 
         <!-- reasons -->
-        <article id="reasons my-16">
+        <article id="reasons mt-16">
 
             <div class="w-full flex flex-col justify-center items-center bg-blue-50">
 
-                <p class="mt-16 mb-8 text-center font-medium tracking-tight text-blue-950 text-2xl sm:text-3xl lg:text-4xl xl:text-5xl">Live Stress Free Knowing That</p>
+                <p class="great-vibes my-16 text-center text-blue-950 w-[48rem] text-2xl sm:text-3xl lg:text-4xl xl:text-5xl">With Dirty Beach you can live stress free knowing that...</p>
 
-                <div class="mb-16 flex flex-col items-center gap-4 md:flex-row lg:gap-8">
+                <div class="mb-16 flex flex-col items-start gap-4 md:flex-row lg:gap-16">
 
-                    <div class="flex sm:w-1/2 md:w-56 lg:w-64 flex-col items-center px-4 gap-4">
+                    <div class="flex sm:w-1/2 md:w-56 lg:w-72 flex-col items-center px-4 gap-4">
                         <img class="h-16 xl:h-20 drop-shadow-lg" src="static/images/decorations/starfish.svg" alt="" />
-                        <p class="text-center text-lg sm:text-xl xl:text-2xl">Your Home Is Getting a Quality Clean We're Proud Of.</p>
+                        <p class="text-center text-lg sm:text-xl xl:text-2xl">Your Home Is Getting A Quality Clean We're Proud Of. We Guarentee It!</p>
                     </div>
 
-                    <div class="flex sm:w-1/2 md:w-56 lg:w-64 flex-col items-center px-4 gap-4">
+                    <div class="flex sm:w-1/2 md:w-56 lg:w-72 flex-col items-center px-4 gap-4">
                         <img class="h-16 xl:h-20 drop-shadow-lg" src="static/images/decorations/palm-tree-bullet.svg" alt="" />
-                        <p class="text-center text-lg sm:text-xl xl:text-2xl">All of Our Products Are Eco-Friendly and Sustainably Sourced.</p>
+                        <p class="text-center text-lg sm:text-xl xl:text-2xl">All Of Our Products Are Eco-Friendly And Sustainably Sourced.</p>
                     </div>
 
-                    <div class="flex sm:w-1/2 md:w-56 lg:w-64 flex-col items-center px-4 gap-4">
+                    <div class="flex sm:w-1/2 md:w-56 lg:w-72 flex-col items-center px-4 gap-4">
                         <div class="flex">
                             <img class="-mr-4 h-16 xl:h-20 drop-shadow-lg" src="static/images/decorations/seahorse.svg" alt="" />
                             <img class="-ml-4 h-16 xl:h-20 -scale-x-100 drop-shadow-xl" src="static/images/decorations/seahorse.svg" alt="" />
                         </div>
-                        <p class="text-center text-lg sm:text-xl xl:text-2xl">Your Home Will Be Serviced by the Same, Trusted Person Each Time.</p>
+                        <p class="text-center text-lg sm:text-xl xl:text-2xl">Your Home Will Be Serviced By A Team That Is Not Only Dependable But Cares About You And Your Property!</p>
                     </div>
 
                 </div>
@@ -163,13 +165,16 @@
 
         </article>
 
+        <div class="w-full my-16">
+            <p class="great-vibes text-center text-2xl sm:text-3xl lg:text-4xl xl:text-5xl">We keep you Beachy Clean!</p>
+        </div>
+
         <!-- IMAGE CAROUSEL -->
-        <article class="my-16 flex justify-center bg-blue-50 pt-16 px-4 sm:p-16">
+        <article class="mb-16 flex justify-center bg-blue-50 pt-16 px-4 sm:p-16">
 
             <div class="container flex flex-col items-center justify-center">
-                <!-- FIXME: Fix this tag line -->
-                <p class="text-center font-medium text-2xl sm:text-3xl lg:text-4xl xl:text-5xl">See What We Are Capable Of!</p>
-                <p class="mb-12 mt-8 text-center md:w-3/4 text-lg sm:text-xl xl:text-2xl">We Take Great Pride in Our Work, and It Certainly Shows. Below are some homes we have cleaned in the past. We hope that these examples illustrate our dedication and hard work!</p>
+                <p class="great-vibes text-center text-2xl sm:text-3xl lg:text-4xl xl:text-5xl">We Love What We Do...</p>
+                <p class="mb-12 mt-8 text-center md:w-3/4 text-lg sm:text-xl xl:text-2xl">We take pride in our work and it shows. From Vacation Properties to Private Homes, these photos represent just a small illustration of our dedication and hard work provided just for you.</p>
                 <div class="relative mx-auto max-w-4xl" x-data="{ activeSlide: 1, slides: [1, 2, 3, 4, 5, 6, 7] }">
                     <!-- Slides -->
                     <template x-for="slide in slides" :key="slide">
@@ -180,10 +185,10 @@
                     <!-- Prev/Next Arrows -->
                     <div class="absolute inset-0 flex">
                         <div class="flex w-1/2 items-center justify-start">
-                            <button class="-ml-6 h-12 w-12 rounded-full bg-teal-100 font-bold text-teal-500 hover:text-orange-500 hover:shadow-lg" x-on:click="activeSlide = activeSlide === 1 ? slides.length : activeSlide - 1">&#8592;</button>
+                            <button class="-ml-6 h-12 w-12 rounded-full bg-teal-100  text-teal-500 hover:text-orange-500 hover:shadow-lg" x-on:click="activeSlide = activeSlide === 1 ? slides.length : activeSlide - 1">&#8592;</button>
                         </div>
                         <div class="flex w-1/2 items-center justify-end">
-                            <button class="-mr-6 h-12 w-12 rounded-full bg-teal-100 font-bold text-teal-500 hover:text-orange-500 hover:shadow" x-on:click="activeSlide = activeSlide === slides.length ? 1 : activeSlide + 1">&#8594;</button>
+                            <button class="-mr-6 h-12 w-12 rounded-full bg-teal-100  text-teal-500 hover:text-orange-500 hover:shadow" x-on:click="activeSlide = activeSlide === slides.length ? 1 : activeSlide + 1">&#8594;</button>
                         </div>
                     </div>
                     <!-- Buttons -->
@@ -208,13 +213,13 @@
         <!-- TODO: Implement pricing -->
         <!-- PRICING -->
         <!-- <article>
-                <p class="m-16 text-center text-3xl font-medium tracking-tight text-blue-950 md:text-4xl 2xl:text-6xl">Choose a plan that works for You</p>
+                <p class="m-16 text-center text-3xl  tracking-tight text-blue-950 md:text-4xl 2xl:text-6xl">Choose a plan that works for You</p>
                 <div class="flex flex-col items-center md:grid md:grid-cols-3 w-full h-full md:divide-x">
                     <div class="flex h-full w-full flex-col items-center justify-center gap-6">
-                        <p class="text-center text-xl font-semibold text-blue-950 2xl:text-3xl">Maintanence Clean</p>
+                        <p class="text-center text-xl  text-blue-950 2xl:text-3xl">Maintanence Clean</p>
                         <div class="flex h-full w-full flex-col items-center justify-between">
                             <div class="flex w-4/5 flex-col">
-                                <p class="text-center text-lg font-medium tracking-tight underline">Entire Home</p>
+                                <p class="text-center text-lg  tracking-tight underline">Entire Home</p>
                                 <ul class="flex list-disc flex-col gap-1 py-2 indent-2">
                                     <li>Tidy Up</li>
                                     <li>Clean/Dust Mirrors, Frames, & Surfaces</li>
@@ -222,17 +227,17 @@
                                     <li>Sanitize Door Knobs & Light Switches</li>
                                     <li>Empty Garbage</li>
                                 </ul>
-                                <p class="text-center text-lg font-medium tracking-tight underline">Bedroom</p>
+                                <p class="text-center text-lg  tracking-tight underline">Bedroom</p>
                                 <ul class="flex list-disc flex-col gap-1 py-2 indent-2">
                                     <li>Make Beds (Clean linens must be provided)</li>
                                 </ul>
-                                <p class="text-center text-lg font-medium tracking-tight underline">Bathroom</p>
+                                <p class="text-center text-lg  tracking-tight underline">Bathroom</p>
                                 <ul class="flex list-disc flex-col gap-1 py-2 indent-2">
                                     <li>Clean/Sanitize Sinks, Tubs, and or Showers</li>
                                     <li>Clean/Sanitize Interior/Exterior of Toilets</li>
                                     <li>Spot Clean Exterior Cabinets</li>
                                 </ul>
-                                <p class="text-center text-lg font-medium tracking-tight underline">Kitchen</p>
+                                <p class="text-center text-lg  tracking-tight underline">Kitchen</p>
                                 <ul class="flex list-disc flex-col gap-1 py-2 indent-2">
                                     <li>Clean/Sanitize Countertops and Backsplash</li>
                                     <li>Clean Exterior of Appliances</li>
@@ -241,15 +246,15 @@
                                     <li>Spot Clean Exterior Cabinets</li>
                                 </ul>
                             </div>
-                            <p class="bottom-0 my-4 rounded-3xl bg-blue-200 px-8 py-4 text-center text-lg font-semibold text-blue-950 underline 2xl:text-2xl">Starting at $125</p>
+                            <p class="bottom-0 my-4 rounded-3xl bg-blue-200 px-8 py-4 text-center text-lg  text-blue-950 underline 2xl:text-2xl">Starting at $125</p>
                         </div>
                     </div>
                     <div class="flex h-full w-full flex-col items-center justify-center gap-6">
-                        <p class="text-center text-xl font-semibold text-blue-950 2xl:text-3xl">Maintanence Clean</p>
+                        <p class="text-center text-xl  text-blue-950 2xl:text-3xl">Maintanence Clean</p>
                         <div class="flex h-full w-full flex-col items-center justify-between">
                 
                             <div class="flex w-4/5 flex-col">
-                                <p class="text-center text-lg font-medium tracking-tight underline">Entire Home</p>
+                                <p class="text-center text-lg  tracking-tight underline">Entire Home</p>
                                 <ul class="flex list-disc flex-col gap-1 py-2 indent-2">
                                     <li>Tidy Up</li>
                                     <li>Tidy Up</li>
@@ -258,14 +263,14 @@
                                     <li>Tidy Up</li>
                                 </ul>
                             </div>
-                            <p class="bottom-0 my-4 rounded-3xl bg-blue-200 px-8 py-4 text-center text-lg font-semibold text-blue-950 underline 2xl:text-2xl">Starting at $125</p>
+                            <p class="bottom-0 my-4 rounded-3xl bg-blue-200 px-8 py-4 text-center text-lg  text-blue-950 underline 2xl:text-2xl">Starting at $125</p>
                         </div>
                     </div>
                     <div class="flex h-full w-full flex-col items-center justify-center gap-6">
-                        <p class="text-center text-xl font-semibold text-blue-950 2xl:text-3xl">Maintanence Clean</p>
+                        <p class="text-center text-xl  text-blue-950 2xl:text-3xl">Maintanence Clean</p>
                         <div class="flex h-full w-full flex-col items-center justify-between">
                             <div class="flex w-4/5 flex-col">
-                                <p class="text-center text-lg font-medium tracking-tight underline">Entire Home</p>
+                                <p class="text-center text-lg  tracking-tight underline">Entire Home</p>
                                 <ul class="flex list-disc flex-col gap-1 py-2 indent-2">
                                     <li>Tidy Up</li>
                                     <li>Clean/Dust Mirrors, Frames, & Surfaces</li>
@@ -274,12 +279,12 @@
                                     <li>Empty Garbage</li>
                                 </ul>
                             </div>
-                            <p class="my-4 rounded-3xl bg-blue-200 px-8 py-4 text-center text-lg font-semibold text-blue-950 underline 2xl:text-2xl">Starting at $125</p>
+                            <p class="my-4 rounded-3xl bg-blue-200 px-8 py-4 text-center text-lg  text-blue-950 underline 2xl:text-2xl">Starting at $125</p>
                         </div>
                     </div>
                 </div>
                 <div class="my-8 bg-sky-100 p-8 shadow-inner">
-                    <h2 class="text-center text-2xl font-bold 2xl:text-4xl">Introducing Our New Service!</h2>
+                    <h2 class="text-center text-2xl  2xl:text-4xl">Introducing Our New Service!</h2>
                     <p class="mt-4 text-center 2xl:text-xl">Now Offering: Property Maintanence & Small Repairs</p>
                 </div>
             </article> -->
@@ -291,17 +296,17 @@
         <!-- FOOTER COLUMNS -->
         <div class="grid h-32 grid-cols-3 pt-4 container">
             <div class="flex flex-col items-center">
-                <p class="mx-24 text-center text-xl font-medium italic">DBA Dirty Beach Laundry and Cleaning Service LLC</p>
+                <p class="mx-24 text-center text-xl  italic">DBA Dirty Beach Laundry and Cleaning Service LLC</p>
             </div>
             <div class="flex flex-col items-center">
-                <p class="text-xl font-medium italic">Links</p>
+                <p class="text-xl  italic">Links</p>
                 <ul>
                     <li class="text-center"><a href="contact.html">Contact Us</a></li>
                     <li class="text-center"><a href="https://www.facebook.com/dirtybeachlaundry">Facebook</a></li>
                 </ul>
             </div>
             <div class="flex flex-col items-center">
-                <p class="text-xl font-medium italic">Credit</p>
+                <p class="text-xl  italic">Credit</p>
                 <ul>
                     <li class="text-center"><p><a href="https://www.freepik.com/free-photo/starfish-isolated-white-background_2571707.htm#query=starfish&position=0&from_view=search&track=sph">kstudio</a>on Freepik</p></li>
                     <li class="text-center"><a href="https://www.iconfinder.com">IconFinder</a></li>
