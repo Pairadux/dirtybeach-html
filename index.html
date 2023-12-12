@@ -51,16 +51,15 @@
     <main>
 
         <!-- HERO -->
-        <header class="relative overflow-hidden">
+        <header class="relative overflow-hidden w-full">
 
             <!-- Background beach image -->
-            <img class="h-[48rem] w-full object-cover brightness-50 xl:h-[52rem] 2xl:h-[56rem]"
-                src="static/images/beach_image.jpg" alt="" />
+            <img class="h-[48rem] w-full object-cover brightness-50 xl:h-[52rem] 2xl:h-[56rem]" src="static/images/beach_image.jpg" alt="" />
 
             <!-- Company logo and mini-bio -->
-            <div class="absolute left-1/2 top-1/2 flex w-full -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-4 sm:w-3/4 md:w-1/2">
+            <div class="absolute left-1/2 top-1/2 w-full flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-4">
                 <img class="h-64 sm:h-72 xl:h-80" src="static/images/logo_circle_gradient.png" alt="" />
-                <p class="px-4 text-center font-normal italic text-white text-lg sm:text-xl xl:text-2xl">Providing Professional Residential, VRBO, and Airbnb Cleaning Services in Franklin, Wakulla, and Leon Counties.</p>
+                <p class="px-4 text-center font-normal italic text-white text-lg w-full sm:w-[28rem] md:w-[28rem] xl:w-[32rem] sm:text-xl xl:text-2xl">Providing Professional Residential, VRBO, and Airbnb Cleaning Services in Franklin, Wakulla, and Leon Counties.</p>
                 <a class="h-fit w-fit rounded-full bg-sky-500 px-5 py-3 font-light text-white shadow-md text-lg sm:text-xl xl:text-2xl" href="contact.html">Contact Us</a>
             </div>
 
@@ -72,7 +71,7 @@
             <div class="container flex justify-around items-center pb-28 md:pb-32">
 
                 <!-- Left Palm Tree -->
-                <img class="lg:h-28 2xl:h-36 drop-shadow-xl hidden lg:block -mr-20"
+                <img class="lg:h-28 2xl:h-36 drop-shadow-lg hidden lg:block -mr-20"
                     src="static/images/decorations/palm-tree-bullet.svg" alt="" />
 
                 <!-- Bio -->
@@ -82,7 +81,7 @@
                 </div>
 
                 <!-- Right Palm Tree -->
-                <img class="lg:h-28 2xl:h-36 drop-shadow-xl hidden lg:block -ml-20 -scale-x-100" src="static/images/decorations/palm-tree-bullet.svg" alt="" />
+                <img class="lg:h-28 2xl:h-36 drop-shadow-lg hidden lg:block -ml-20 -scale-x-100" src="static/images/decorations/palm-tree-bullet.svg" alt="" />
 
             </div>
 
@@ -142,19 +141,19 @@
                 <div class="mb-16 flex flex-col items-center gap-4 md:flex-row lg:gap-8">
 
                     <div class="flex sm:w-1/2 md:w-56 lg:w-64 flex-col items-center px-4 gap-4">
-                        <img class="h-16 xl:h-20" src="static/images/decorations/starfish.svg" alt="" />
+                        <img class="h-16 xl:h-20 drop-shadow-lg" src="static/images/decorations/starfish.svg" alt="" />
                         <p class="text-center text-lg sm:text-xl xl:text-2xl">Your Home Is Getting a Quality Clean We're Proud Of.</p>
                     </div>
 
                     <div class="flex sm:w-1/2 md:w-56 lg:w-64 flex-col items-center px-4 gap-4">
-                        <img class="h-16 xl:h-20" src="static/images/decorations/palm-tree-bullet.svg" alt="" />
+                        <img class="h-16 xl:h-20 drop-shadow-lg" src="static/images/decorations/palm-tree-bullet.svg" alt="" />
                         <p class="text-center text-lg sm:text-xl xl:text-2xl">All of Our Products Are Eco-Friendly and Sustainably Sourced.</p>
                     </div>
 
                     <div class="flex sm:w-1/2 md:w-56 lg:w-64 flex-col items-center px-4 gap-4">
                         <div class="flex">
-                            <img class="-mr-4 h-16 xl:h-20" src="static/images/decorations/seahorse.svg" alt="" />
-                            <img class="-ml-4 h-16 xl:h-20 -scale-x-100" src="static/images/decorations/seahorse.svg" alt="" />
+                            <img class="-mr-4 h-16 xl:h-20 drop-shadow-lg" src="static/images/decorations/seahorse.svg" alt="" />
+                            <img class="-ml-4 h-16 xl:h-20 -scale-x-100 drop-shadow-xl" src="static/images/decorations/seahorse.svg" alt="" />
                         </div>
                         <p class="text-center text-lg sm:text-xl xl:text-2xl">Your Home Will Be Serviced by the Same, Trusted Person Each Time.</p>
                     </div>
@@ -165,39 +164,38 @@
         </article>
 
         <!-- IMAGE CAROUSEL -->
-        <div class="my-16 flex flex-col items-center justify-center bg-blue-50 pt-16 px-4 sm:p-16">
+        <article class="my-16 flex justify-center bg-blue-50 pt-16 px-4 sm:p-16">
 
-            <!-- FIXME: Fix this tag line -->
-            <p class="text-center font-medium text-2xl sm:text-3xl lg:text-4xl xl:text-5xl">See What We Are Capable Of!</p>
-
-            <p class="mb-12 mt-8 text-center md:w-3/4 text-lg sm:text-xl xl:text-2xl">We Take Great Pride in Our Work, and It Certainly Shows. Below are some homes we have cleaned in the past. We hope that these examples illustrate our dedication and hard work!</p>
-
-            <div class="relative mx-auto max-w-4xl" x-data="{ activeSlide: 1, slides: [1, 2, 3, 4, 5, 6, 7] }">
-                <!-- Slides -->
-                <template x-for="slide in slides" :key="slide">
-                    <div x-show="activeSlide === slide" class="flex h-[40rem] items-center rounded-lg 2xl:h-[45rem]">
-                        <img class="h-[40rem] w-[40rem] content-center object-cover 2xl:h-[45rem] 2xl:w-[45rem] rounded-xl" :src="'static/images/real-homes/home' + slide + '.jpeg'" alt="" />
-                    </div>
-                </template>
-
-                <!-- Prev/Next Arrows -->
-                <div class="absolute inset-0 flex">
-                    <div class="flex w-1/2 items-center justify-start">
-                        <button class="-ml-6 h-12 w-12 rounded-full bg-teal-100 font-bold text-teal-500 hover:text-orange-500 hover:shadow-lg" x-on:click="activeSlide = activeSlide === 1 ? slides.length : activeSlide - 1">&#8592;</button>
-                    </div>
-                    <div class="flex w-1/2 items-center justify-end">
-                        <button class="-mr-6 h-12 w-12 rounded-full bg-teal-100 font-bold text-teal-500 hover:text-orange-500 hover:shadow" x-on:click="activeSlide = activeSlide === slides.length ? 1 : activeSlide + 1">&#8594;</button>
-                    </div>
-                </div>
-
-                <!-- Buttons -->
-                <div class="absolute flex w-full items-center justify-center px-4">
+            <div class="container flex flex-col items-center justify-center">
+                <!-- FIXME: Fix this tag line -->
+                <p class="text-center font-medium text-2xl sm:text-3xl lg:text-4xl xl:text-5xl">See What We Are Capable Of!</p>
+                <p class="mb-12 mt-8 text-center md:w-3/4 text-lg sm:text-xl xl:text-2xl">We Take Great Pride in Our Work, and It Certainly Shows. Below are some homes we have cleaned in the past. We hope that these examples illustrate our dedication and hard work!</p>
+                <div class="relative mx-auto max-w-4xl" x-data="{ activeSlide: 1, slides: [1, 2, 3, 4, 5, 6, 7] }">
+                    <!-- Slides -->
                     <template x-for="slide in slides" :key="slide">
-                        <button class="mx-2 mb-0 mt-4 h-2 w-4 flex-1 overflow-hidden rounded-full transition-colors duration-200 ease-out hover:bg-teal-600 hover:shadow-lg" :class="{ 'bg-blue-500': activeSlide === slide, 'bg-teal-300': activeSlide !== slide }" x-on:click="activeSlide = slide"></button>
+                        <div x-show="activeSlide === slide" class="flex h-[40rem] items-center rounded-lg 2xl:h-[45rem]">
+                            <img class="h-[40rem] w-[40rem] content-center object-cover 2xl:h-[45rem] 2xl:w-[45rem] rounded-xl" :src="'static/images/real-homes/home' + slide + '.jpeg'" alt="" />
+                        </div>
                     </template>
+                    <!-- Prev/Next Arrows -->
+                    <div class="absolute inset-0 flex">
+                        <div class="flex w-1/2 items-center justify-start">
+                            <button class="-ml-6 h-12 w-12 rounded-full bg-teal-100 font-bold text-teal-500 hover:text-orange-500 hover:shadow-lg" x-on:click="activeSlide = activeSlide === 1 ? slides.length : activeSlide - 1">&#8592;</button>
+                        </div>
+                        <div class="flex w-1/2 items-center justify-end">
+                            <button class="-mr-6 h-12 w-12 rounded-full bg-teal-100 font-bold text-teal-500 hover:text-orange-500 hover:shadow" x-on:click="activeSlide = activeSlide === slides.length ? 1 : activeSlide + 1">&#8594;</button>
+                        </div>
+                    </div>
+                    <!-- Buttons -->
+                    <div class="absolute flex w-full items-center justify-center px-4">
+                        <template x-for="slide in slides" :key="slide">
+                            <button class="mx-2 mb-0 mt-4 h-2 w-4 flex-1 overflow-hidden rounded-full transition-colors duration-200 ease-out hover:bg-teal-600 hover:shadow-lg" :class="{ 'bg-blue-500': activeSlide === slide, 'bg-teal-300': activeSlide !== slide }" x-on:click="activeSlide = slide"></button>
+                        </template>
+                    </div>
                 </div>
             </div>
-        </div>
+
+        </article>
 
         <!-- TODO: Ask client about 'reviews section' -->
         <!-- REVIEWS -->
