@@ -1,9 +1,13 @@
-* {
-    font-family: 'Libre Baskerville', serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { font-family: 'Libre Baskerville', serif; }
 
 .great-vibes {
-    font-family: 'Great Vibes';
+    font-family: 'Great Vibes' !important;
+    font-size: 3rem;
+    line-height: 1;
 }
 
 #checklist {

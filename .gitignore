@@ -1,5 +1,8 @@
 tailwind.config.js
 .prettierrc
 changes.txt
-previous-services-iterations.html
+previous-iterations.html
 .DS_Store
+node_modules
+**/.DS_STORE
+**/.DS_Store
