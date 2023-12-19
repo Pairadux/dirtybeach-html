@@ -14,35 +14,37 @@
 
 <body>
 
-    <!-- TODO: Make navbar screen height on mobile, take inspiration from linktree -->
-    <nav class="sticky top-0 z-50 flex justify-center bg-white shadow-lg">
+    <nav class="sticky top-0 z-50 flex justify-center bg-white md:shadow-lg overflow-hidden">
 
-        <div x-data="{ open: false }" :class="{ 'flex-col': open }" class="container flex items-center justify-between px-6">
+        <!-- Nav Wrapper -->
+        <div class="container" x-data="{ open: false, get isMobile() { return screen.width < 768 } }">
 
-            <!-- Menu Bar w/ hidden Menu Button -->
-            <div class="flex w-full items-center justify-between md:mx-0 md:w-fit">
-                <a href="index.html"><img :class="{ 'float-left': open }" class="h-20" src="static/images/logo_no_sub.png" alt="" /></a>
-                <button class="rounded-full bg-blue-500  px-6 py-3 text-lg text-white md:hidden" @click="open = !open">Menu</button>
+            <!-- Responsive Nav Element -->
+            <div :class="open ? 'h-screen' : 'h-fit'"  class=" relative flex w-full flex-col justify-start gap-16 px-6 md:flex-row md:items-center md:justify-between">
+
+                <!-- Brand with mobile menu button -->
+                <ul :class="open ? 'shadow-lg' : 'shadow-none'" class="flex h-fit w-full items-center justify-between md:w-fit">
+                    <li><a href="index.html"><img class="h-20" src="static/images/logo_no_sub.png" alt="" /></a></li>
+                    <li><button class="rounded-full bg-blue-500 px-6 py-3 text-lg text-white h-fit w-fit md:hidden" @click="open = !open">Menu</button></li>
+                </ul>
+
+                <!-- Nav Items -->
+                <ul class="flex w-full flex-col items-center gap-16 md:w-fit md:h-fit md:flex-row md:gap-4" x-cloak x-show="open || !isMobile" x-data="{urls: [
+                    { id: 1, url: '#', text: 'Home' },
+                    { id: 2, url: '#company-bio', text: 'About' },
+                    { id: 3, url: '#checklist', text: 'Services' },
+                    { id: 4, url: '#carousel', text: 'Gallery' },
+                    { id: 5, url: 'contact.html', text: 'Contact' },
+                    { id: 6, url: 'https://www.facebook.com/dirtybeachlaundry', text: 'Facebook' }
+                    ]}">
+                    <template x-for="url in urls" :key="url.id">
+                        <li><a class="h-fit w-fit text-3xl md:text-lg" :href="url.url" x-text="url.text" @click="open = false"></a></li>
+                    </template>
+                    <svg class="absolute bottom-0 w-[200vw] -z-10 md:hidden" id="visual" viewBox="0 0 768 200" width="768" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><path d="M0 78L32 88.7C64 99.3 128 120.7 192 117.3C256 114 320 86 384 68.2C448 50.3 512 42.7 576 51C640 59.3 704 83.7 736 95.8L768 108L768 201L736 201C704 201 640 201 576 201C512 201 448 201 384 201C320 201 256 201 192 201C128 201 64 201 32 201L0 201Z" fill="#3b82f6" stroke-linecap="round" stroke-linejoin="miter"></path></svg>
+                </ul>
+
             </div>
-
-            <!-- md:Navbar -->
-            <div class="hidden items-center gap-8 md:flex">
-                <a class="h-fit w-fit text-lg" href="tel:8503298814">(850) 329-8814</a>
-                <a class="h-fit w-fit text-lg" href="https://www.facebook.com/dirtybeachlaundry">Facebook</a>
-                <a class="h-fit w-fit rounded-full bg-sky-500 px-4 py-2 text-lg text-white shadow-md" href="contact.html">Contact Us</a>
-            </div>
-
-            <!-- Small screen Navbar -->
-            <!-- TODO: Merge small navbar with md:Navbar -->
-            <!-- FIXME: Improve mobile menu appearance -->
-            <div x-show="open" @click.away="open = false" class="relative flex w-full flex-col items-center gap-4 bg-blue-50 py-8 shadow-inner">
-                <a class="h-fit w-fit text-lg" href="tel:8503298814"><img src="static/images/decorations/phone.svg" alt="" class="mr-2 inline-block h-6" />Call (850) 329-8814</a>
-                <div class="flex gap-4">
-                    <a class="h-fit w-fit rounded-full bg-sky-500 px-4 py-2 text-lg text-white shadow-md" href="contact.html">Contact Us</a>
-                    <a class="h-fit w-fit rounded-full bg-sky-500 px-4 py-2 text-lg text-white shadow-md" href="https://www.facebook.com/dirtybeachlaundry">Facebook</a>
-                </div>
-            </div>
-
+            
         </div>
 
     </nav>
@@ -68,7 +70,7 @@
         </header>
 
         <!-- COMPANY BIO -->
-        <article id="company-bio" class="flex w-full justify-center bg-blue-500 pb-24 pt-12 shadow-inner sm:py-24 md:py-32">
+        <article id="company-bio" class="-z-10 flex w-full justify-center bg-blue-500 pb-24 pt-12 shadow-inner sm:py-24 md:py-32">
 
             <div class="container flex items-center justify-around pb-28 md:pb-32">
 
@@ -100,7 +102,7 @@
                 </div>
 
                 <!-- FIXME: Convert to 3 seperate ul's -->
-                <ul id="checklist" class="grid list-image-[url(static/images/list-image/checkbox.png)] grid-cols-1 gap-y-2 sm:list-inside sm:grid-cols-2 sm:gap-x-4 sm:gap-y-4 md:grid-cols-3 md:gap-x-0 lg:gap-x-4 lg:gap-y-6 xl:gap-x-14 xl:text-lg 2xl:gap-x-48 2xl:gap-y-8">
+                <ul id="checklist" class="grid list-image-[url(../images/list-image/checkbox.png)] grid-cols-1 gap-y-2 sm:list-inside sm:grid-cols-2 sm:gap-x-4 sm:gap-y-4 md:grid-cols-3 md:gap-x-0 lg:gap-x-4 lg:gap-y-6 xl:gap-x-14 xl:text-lg 2xl:gap-x-48 2xl:gap-y-8">
                     <li>Wipe counters & Cabinet Doors</li>
                     <li>Clean backsplash</li>
                     <li>Shine appliances & sink</li>
@@ -169,7 +171,7 @@
         </div>
 
         <!-- IMAGE CAROUSEL -->
-        <article class="mb-16 flex justify-center bg-blue-500 px-4 py-16 sm:p-16">
+        <article id="carousel" class="mb-16 flex justify-center bg-blue-500 px-4 py-16 sm:p-16">
 
             <div class="container flex flex-col items-center justify-center">
                 <p class="great-vibes text-center text-white">We Love What We Do...</p>

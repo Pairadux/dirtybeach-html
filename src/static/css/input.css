@@ -1,4 +1,5 @@
 @tailwind base; @tailwind components; @tailwind utilities;
+[x-cloak] { display: none !important; }
 
 * { font-family: 'Libre Baskerville', serif; }
 
@@ -11,3 +12,7 @@
 
 #checklist > p { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important; }
 #checklist > li { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important; }
+
+.jump {
+    scroll-margin-top: 5px;
+}
