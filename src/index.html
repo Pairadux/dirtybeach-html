@@ -1,281 +1,485 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dirty Beach | Home</title>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="static/css/output.css">
-</head>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="static/css/output.css" />
+  </head>
 
-<body class="bg-white">
+  <body class="bg-white">
+    <nav
+      class="sticky top-0 z-50 flex justify-center bg-[#ffffff] md:shadow-lg overflow-hidden"
+    >
+      <!-- Nav Wrapper -->
+      <div
+        class="container"
+        x-data="{ open: false, get isMobile() { return screen.width < 768 } }"
+      >
+        <!-- Responsive Nav Element -->
+        <div
+          :class="open ? 'h-screen' : 'h-fit'"
+          class="relative flex w-full flex-col justify-start gap-16 md:flex-row md:items-center md:justify-between"
+        >
+          <!-- Brand with mobile menu button -->
+          <ul
+            :class="open ? 'shadow-lg' : 'shadow-none'"
+            class="flex h-fit w-full items-center justify-between px-6 md:w-fit"
+          >
+            <li>
+              <a href="index.html"
+                ><img class="h-20" src="static/images/logo_no_sub.png" alt=""
+              /></a>
+            </li>
+            <li>
+              <button
+                class="rounded-full bg-blue-500 px-6 py-3 text-lg text-white h-fit w-fit md:hidden"
+                @click="open = !open"
+              >
+                Menu
+              </button>
+            </li>
+          </ul>
 
-    <nav class="sticky top-0 z-50 flex justify-center bg-[#ffffff] md:shadow-lg overflow-hidden">
-
-        <!-- Nav Wrapper -->
-        <div class="container" x-data="{ open: false, get isMobile() { return screen.width < 768 } }">
-
-            <!-- Responsive Nav Element -->
-            <div :class="open ? 'h-screen' : 'h-fit'"  class=" relative flex w-full flex-col justify-start gap-16 md:flex-row md:items-center md:justify-between">
-
-                <!-- Brand with mobile menu button -->
-                <ul :class="open ? 'shadow-lg' : 'shadow-none'" class="flex h-fit w-full items-center justify-between px-6 md:w-fit">
-                    <li><a href="index.html"><img class="h-20" src="static/images/logo_no_sub.png" alt="" /></a></li>
-                    <li><button class="rounded-full bg-blue-500 px-6 py-3 text-lg text-white h-fit w-fit md:hidden" @click="open = !open">Menu</button></li>
-                </ul>
-
-                <!-- Nav Items -->
-                <ul class="flex w-full flex-col items-center gap-16 md:w-fit md:h-fit md:flex-row md:pr-6 md:gap-4" x-cloak x-show="open || !isMobile" x-data="{urls: [
+          <!-- Nav Items -->
+          <ul
+            class="flex w-full flex-col items-center gap-16 md:w-fit md:h-fit md:flex-row md:pr-6 md:gap-4"
+            x-cloak
+            x-show="open || !isMobile"
+            x-data="{urls: [
                     { id: 1, url: 'index.html', text: 'Home' },
                     { id: 2, url: '#company-bio', text: 'About' },
                     { id: 3, url: '#checklist', text: 'Services' },
                     { id: 4, url: '#carousel', text: 'Gallery' },
                     { id: 5, url: 'contact.html', text: 'Contact' },
                     { id: 6, url: 'https://www.facebook.com/dirtybeachlaundry', text: 'Facebook' }
-                    ]}">
-                    <template x-for="url in urls" :key="url.id">
-                        <li><a class="h-fit w-fit text-3xl md:text-lg" :href="url.url" x-text="url.text" @click="open = false"></a></li>
-                    </template>
-                    <svg class="absolute bottom-0 w-[200vw] -z-10 md:hidden" id="visual" viewBox="0 0 768 200" width="768" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><path d="M0 78L32 88.7C64 99.3 128 120.7 192 117.3C256 114 320 86 384 68.2C448 50.3 512 42.7 576 51C640 59.3 704 83.7 736 95.8L768 108L768 201L736 201C704 201 640 201 576 201C512 201 448 201 384 201C320 201 256 201 192 201C128 201 64 201 32 201L0 201Z" fill="#3b82f6" stroke-linecap="round" stroke-linejoin="miter"></path></svg>
-                </ul>
-
-            </div>
-            
+                    ]}"
+          >
+            <template x-for="url in urls" :key="url.id">
+              <li>
+                <a
+                  class="h-fit w-fit text-3xl md:text-lg"
+                  :href="url.url"
+                  x-text="url.text"
+                  @click="open = false"
+                ></a>
+              </li>
+            </template>
+            <svg
+              class="absolute bottom-0 w-[200vw] -z-10 md:hidden"
+              id="visual"
+              viewBox="0 0 768 200"
+              width="768"
+              height="200"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              version="1.1"
+            >
+              <path
+                d="M0 78L32 88.7C64 99.3 128 120.7 192 117.3C256 114 320 86 384 68.2C448 50.3 512 42.7 576 51C640 59.3 704 83.7 736 95.8L768 108L768 201L736 201C704 201 640 201 576 201C512 201 448 201 384 201C320 201 256 201 192 201C128 201 64 201 32 201L0 201Z"
+                fill="#3b82f6"
+                stroke-linecap="round"
+                stroke-linejoin="miter"
+              ></path>
+            </svg>
+          </ul>
         </div>
-
+      </div>
     </nav>
-    
+
     <main class="overflow-hidden">
+      <!-- HERO -->
+      <header class="relative h-fit w-full overflow-hidden">
+        <!-- Background beach image -->
+        <img
+          class="absolute left-1/2 top-1/2 -z-10 h-full min-w-full -translate-x-1/2 -translate-y-1/2 object-cover brightness-50"
+          src="static/images/beach_image.jpg"
+          alt=""
+        />
 
-        <!-- HERO -->
-        <header class="relative h-fit w-full overflow-hidden">
-
-            <!-- Background beach image -->
-            <img class="absolute left-1/2 top-1/2 -z-10 h-full min-w-full -translate-x-1/2 -translate-y-1/2 object-cover brightness-50" src="static/images/beach_image.jpg" alt=""/>
-
-            <!-- Company logo and mini-bio -->
-            <div class="my-16 flex w-full flex-col items-center gap-8">
-                <p class="great-vibes text-center text-white">Welcome to<br>Dirty Beach Cleaning</p>
-                <img class="h-64 sm:h-72 xl:h-80" src="static/images/logo_circle_gradient.png" alt="" />
-                <p class="subheading w-full px-4 text-center text-lg text-white sm:w-[28rem] md:w-[28rem] xl:w-[32rem]">Providing Professional Residential, VRBO, and Airbnb Cleaning Services in Franklin and Wakulla Counties.</p>
-                <!-- <a class="h-fit w-fit rounded-full bg-sky-500 px-5 py-3 text-white shadow-md text-lg sm:text-xl xl:text-2xl" href="contact.html">Contact Us</a> -->
-                <hr class="w-1/2 border-[1px] border-white opacity-25">
-                <p class="subheading text-center text-white">Weekly • Bi-Weekly • Monthly</p>
-            </div>
-
-        </header>
-
-        <!-- COMPANY BIO -->
-        <article id="company-bio" class="-z-10 flex w-full justify-center bg-blue-500 pb-32 pt-16 shadow-inner sm:py-24 md:py-32">
-
-            <div class="container flex items-center justify-around pb-28 md:pb-32">
-
-                <!-- Left Palm Tree -->
-                <img class="-mr-20 hidden drop-shadow-lg lg:block lg:h-24 2xl:h-28"
-                    src="static/images/decorations/palm-tree-bullet.svg" alt="" />
-
-                <!-- Bio -->
-                <div class="space-y-8 px-2 sm:w-5/6 lg:w-3/4">
-                    <p class="great-vibes px-2 text-center tracking-tight text-white">We Dont Just Clean, We Care!</p>
-                    <p class="body px-4 text-center text-white lg:px-0">At Dirty Beach, Your Home Isn't Just Another Task on Our List—It's a Commitment. Servicing Franklin, Wakulla, and Leon Counties, We Go Beyond the Surface to Create Spaces That You're Proud to Call Home. Our Passion? Serving You with Care, One Clean Home at a Time.</p>
-                </div>
-
-                <!-- Right Palm Tree -->
-                <img class="-ml-20 hidden -scale-x-100 drop-shadow-lg lg:block lg:h-24 2xl:h-28" src="static/images/decorations/palm-tree-bullet.svg" alt="" />
-
-            </div>
-
-        </article>
-
-        <!-- CHECKLIST -->
-        <article id="checklist" class="-mt-40 my-16 flex justify-center overflow-hidden px-4 lg:px-16">
-
-            <div class="box-border flex h-full container flex-col items-center justify-center rounded-3xl border-2 bg-white px-2 shadow-md lg:px-12 xl:px-16 2xl:px-24">
-
-                <div class="my-8 text-center sm:my-16">
-                    <p class="heading tracking-tight">Maintanence Cleaning Checklist</p>
-                    <p class="subtitle my-1">(Example: not limited to, as each home is customized)</p>
-                </div>
-
-                <ul id="checklist" class="grid list-image-[url(../images/list-image/checkbox.png)] grid-cols-1 gap-y-2 sm:list-inside sm:grid-cols-2 sm:gap-x-4 sm:gap-y-4 md:gap-x-8 lg:grid-cols-3 lg:gap-x-4 lg:gap-y-6 xl:gap-x-14 xl:text-lg 2xl:gap-x-24 2xl:gap-y-8">
-                    <li>Wipe counters & Cabinet Doors</li>
-                    <li>Clean backsplash</li>
-                    <li>Shine appliances & sink</li>
-                    <li>Clean hood-range</li>
-                    <li>Clean microwave inside/out</li>
-                    <li>Dust light fixtures</li>
-                    <li>Clean table & chairs</li>
-                    <li>Dust Furniture</li>
-                    <li>Dust & spot clean glass</li>
-                    <li>Make beds/change linens</li>
-                    <li>Clean mirrors & light bars</li>
-                    <li>Dust nightstands/dressers</li>
-                    <li>Vacuum/mop</li>
-                    <li>Fluff pillows and restage bed</li>
-                    <li>Dust ceiling fan</li>
-                    <li>Check exhaust fan</li>
-                    <li>Dust Baseboards</li>
-                    <li>Empty & replace garbage</li>
-                    <li>Clean counters, sink, & cabinets</li>
-                    <li>Polish fixtures</li>
-                    <li>Clean toilet inside & out</li>
-                    <li>Clean shower and/or bathtub</li>
-                    <li>Straighten or replace towels</li>
-                    <li>Dust baseboards</li>
-                </ul>
-                
-                <p class="subheading my-16 text-center italic">Our DEEP cleans...are more thorough and customizable to each home!</p>
-
-            </div>
-
-        </article>
-
-        <hr class="w-full h-px bg-black my-16">
-
-        <article id="reasons" class="flex justify-center my-16">
-
-            <div class="container flex flex-col items-center justify-center">
-
-                <p class="great-vibes text-center sm:w-[36rem] md:w-fit">With Dirty Beach you can live stress free knowing that...</p>
-
-                <div class="mt-8 flex flex-col items-center justify-center gap-4 md:flex-row md:items-start lg:gap-8">
-
-                    <div class="flex flex-col items-center justify-center box-border p-4 gap-2 bg-white rounded-3xl border-2 shadow-md w-72 md:w-56 md:h-56 lg:w-72 lg:h-72">
-                        <img class="h-16 drop-shadow-lg xl:h-20" src="static/images/decorations/starfish.svg" alt="" />
-                        <p class="body text-center">Your Home Is Getting A Quality Clean We're Proud Of. We Guarentee It!</p>
-                    </div>
-
-                    <div class="flex flex-col items-center justify-center box-border p-4 gap-2 bg-white rounded-3xl border-2 shadow-md w-72 md:w-56 md:h-56 lg:w-72 lg:h-72">
-                        <img class="h-16 drop-shadow-lg xl:h-20" src="static/images/decorations/palm-tree-bullet.svg" alt="" />
-                        <p class="body text-center">All Of Our Products Are Eco-Friendly And Sustainably Sourced.</p>
-                    </div>
-
-                    <div class="flex flex-col items-center justify-center box-border p-4 gap-2 bg-white rounded-3xl border-2 shadow-md w-72 md:w-56 md:h-56 lg:w-72 lg:h-72">
-                        <div class="flex">
-                            <img class="-mr-4 h-16 drop-shadow-lg xl:h-20" src="static/images/decorations/seahorse.svg" alt="" />
-                            <img class="-ml-4 h-16 -scale-x-100 drop-shadow-xl xl:h-20" src="static/images/decorations/seahorse.svg" alt="" />
-                        </div>
-                        <p class="body text-center">Our Depedable Team Cares For You And Your Property, No Need To Worry!</p>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </article>
-
-        <div class="py-16 w-full bg-blue-500">
-            <p class="great-vibes text-center text-white">We keep you Beachy Clean!</p>
+        <!-- Company logo and mini-bio -->
+        <div class="my-16 flex w-full flex-col items-center gap-8">
+          <p class="great-vibes text-center text-white">
+            Welcome to<br />Dirty Beach Cleaning
+          </p>
+          <img
+            class="h-64 sm:h-72 xl:h-80"
+            src="static/images/logo_circle_gradient.png"
+            alt=""
+          />
+          <p
+            class="subheading w-full px-4 text-center text-lg text-white sm:w-[28rem] md:w-[28rem] xl:w-[32rem]"
+          >
+            Providing professional residential, VRBO, and AirBNB cleaning
+            services in Franklin and Wakulla counties.
+          </p>
+          <hr class="w-1/2 border-[1px] border-white opacity-25" />
+          <p class="subheading text-center text-white">
+            Weekly • Bi-Weekly • Monthly
+          </p>
         </div>
+      </header>
 
-        <!-- IMAGE CAROUSEL -->
-        <article id="carousel" class="my-16 flex justify-center px-4">
+      <!-- COMPANY BIO -->
+      <article
+        id="company-bio"
+        class="-z-10 flex w-full justify-center bg-blue-500 pb-32 pt-16 shadow-inner sm:py-24 md:py-32"
+      >
+        <div class="container flex items-center justify-around pb-28 md:pb-32">
+          <!-- Left Palm Tree -->
+          <img
+            class="-mr-20 hidden drop-shadow-lg lg:block lg:h-24 2xl:h-28"
+            src="static/images/decorations/palm-tree-bullet.svg"
+            alt=""
+          />
 
-            <div class="container flex flex-col items-center justify-center">
-                <p class="great-vibes text-center">We Love What We Do...</p>
-                <p class="body mb-8 mt-8 text-center md:w-2/3">We take pride in our work and it shows. From Vacation Properties to Private Homes, these photos represent just a small illustration of our dedication and hard work provided just for you.</p>
-                <div class="relative mx-auto max-w-4xl" x-data="{ activeSlide: 1, slides: [1, 2, 3, 4, 5, 6, 7] }">
-                    <!-- Slides -->
-                    <template x-for="slide in slides" :key="slide">
-                        <div x-show="activeSlide === slide" class="flex h-[40rem] items-center rounded-lg 2xl:h-[45rem]">
-                            <img class="h-[40rem] w-[40rem] content-center object-cover 2xl:h-[45rem] 2xl:w-[45rem] rounded-xl" :src="'static/images/real-homes/home' + slide + '.jpeg'" alt="" />
-                        </div>
-                    </template>
-                    <!-- Prev/Next Arrows -->
-                    <div class="absolute inset-0 flex">
-                        <div class="flex w-1/2 items-center justify-start">
-                            <button class="-ml-6 h-12 w-12 rounded-full bg-teal-100  text-teal-500 hover:text-orange-500 hover:shadow-lg" x-on:click="activeSlide = activeSlide === 1 ? slides.length : activeSlide - 1">&#8592;</button>
-                        </div>
-                        <div class="flex w-1/2 items-center justify-end">
-                            <button class="-mr-6 h-12 w-12 rounded-full bg-teal-100  text-teal-500 hover:text-orange-500 hover:shadow" x-on:click="activeSlide = activeSlide === slides.length ? 1 : activeSlide + 1">&#8594;</button>
-                        </div>
-                    </div>
-                    <!-- Buttons -->
-                    <div class="absolute flex w-full items-center justify-center px-4">
-                        <template x-for="slide in slides" :key="slide">
-                            <button class="mx-2 mb-0 mt-4 h-2 w-4 flex-1 overflow-hidden rounded-full transition-colors duration-200 ease-out hover:bg-teal-600 hover:shadow-lg" :class="{ 'bg-green-500': activeSlide === slide, 'bg-teal-300': activeSlide !== slide }" x-on:click="activeSlide = slide"></button>
-                        </template>
-                    </div>
-                </div>
-            </div>
+          <!-- Bio -->
+          <div class="space-y-8 px-2 sm:w-5/6 lg:w-3/4">
+            <p class="great-vibes px-2 text-center tracking-tight text-white">
+              We Don't Just Clean, We Care!
+            </p>
+            <p class="body px-4 text-justify text-white lg:px-0">
+              "At Dirty Beach, your home isn't just another task on our
+              list—it's a commitment!" Servicing Franklin and Wakulla counties,
+              we go beyond the surface to create spaces that you're proud to
+              call home. Our passion: serving you with care one clean home at a
+              time.
+            </p>
+          </div>
 
-        </article>
-
-
-        <div class="py-16 w-full bg-blue-500">
-            <p class="great-vibes text-center text-white px-4">Free Quotes! Head To Our <a href="contact.html" class="great-vibes italic">Contact Page</a> To Get Started!</p>
+          <!-- Right Palm Tree -->
+          <img
+            class="-ml-20 hidden -scale-x-100 drop-shadow-lg lg:block lg:h-24 2xl:h-28"
+            src="static/images/decorations/palm-tree-bullet.svg"
+            alt=""
+          />
         </div>
+      </article>
 
-        <article class="flex flex-col items-center my-16 gap-8">
+      <!-- CHECKLIST -->
+      <article
+        id="checklist"
+        class="-mt-40 my-16 flex justify-center overflow-hidden px-4 lg:px-16"
+      >
+        <div
+          class="box-border flex h-full container flex-col items-center justify-center rounded-3xl border-2 bg-white px-2 shadow-md lg:px-12 xl:px-16 2xl:px-24"
+        >
+          <div class="my-8 text-center sm:my-16">
+            <p class="heading tracking-tight">Maintenance Cleaning Checklist</p>
+            <p class="subtitle my-1">
+              (Example: not limited to, as each home is customized)
+            </p>
+          </div>
 
-            <p class="great-vibes text-center">Explaining Our Services</p>
-            
-            <div class="container px-4">
-        
-                <!-- FIRST ACCORDION ITEM -->
-                <details>
-                    <summary class="flex items-center justify-between w-full p-5 border border-gray-200 rounded-t-xl gap-3 hover:cursor-pointer">
-                        <p>What is a Maintenance Clean?</p>
-                        <svg class="w-3 h-3 rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5" /></svg>
-                    </summary>
-                    <div class="p-5 border border-gray-200">
-                        <p>We come and maintain the cleanliness of your home on a weekly, bi-weekly, or monthly basis.</p>
-                    </div>
-                </details>
-        
-                <!-- SECOND ACCORDION ITEM -->
-                <details>
-                    <summary class="flex items-center justify-between w-full p-5 border border-gray-200 gap-3">
-                        What is a Deep Clean?
-                        <svg class="w-3 h-3 rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5" /></svg>
-                    </summary>
-                    <div class="p-5 border border-gray-200">
-                        <p>We go a bit further than the maintenance clean and go literally above and beyond. (Ex: wash baseboards, windows, ceiling fans, internal fridge, ovens etc.)</p>
-                    </div>
-                </details>
-        
-                <!-- THIRD ACCORDION ITEM -->
-                <details>
-                    <summary class="flex items-center justify-between w-full p-5 border border-gray-200 gap-3">
-                        What is Property Maintenance?
-                        <svg class="w-3 h-3 rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5" /></svg>
-                    </summary>
-                    <div class="p-5 border border-gray-200">
-                        <p>We take care of your home while you're away. Trash need to go out? Lawn needs picked up? Faucet leaking? We maintain your home.</p>
-                    </div>
-                </details>
-        
-                <!-- FOURTH ACCORDION ITEM -->
-                <details>
-                    <summary class="flex items-center justify-between w-full p-5 border border-gray-200 gap-3">
-                        What is Property Management?
-                        <svg class="w-3 h-3 rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5" /></svg>
-                    </summary>
-                    <div class="p-5 border border-gray-200">
-                        <p>We can manage your welcome online notifications, rating system, and customer contact on an as-needed basis. If you're hosting your home, we can help.</p>
-                    </div>
-                </details>
-        
-                <!-- FIFTH ACCORDION ITEM -->
-                <details>
-                    <summary class="flex items-center justify-between w-full p-5 border border-gray-200 gap-3">
-                        What is Client Pet Sitting?
-                        <svg class="w-3 h-3 rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5" /></svg>
-                    </summary>
-                    <div class="p-5 border border-gray-200">
-                        <p>If you are already a client we can take care of your pet while away. We can do income or drop-in care. (We also take client referrals for pet sitting as well.)</p>
-                    </div>
-                </details>
-        
+          <ul
+            id="checklist"
+            class="grid list-image-[url(../images/list-image/checkbox.png)] grid-cols-1 gap-y-2 sm:list-inside sm:grid-cols-2 sm:gap-x-4 sm:gap-y-4 md:gap-x-8 lg:grid-cols-3 lg:gap-x-4 lg:gap-y-6 xl:gap-x-14 xl:text-lg 2xl:gap-x-24 2xl:gap-y-8"
+          >
+            <li>Wipe Counters & Cabinet Doors</li>
+            <li>Clean Backsplash</li>
+            <li>Shine Appliances & Sink</li>
+            <li>Wipe Hood-Range</li>
+            <li>Clean Microwave Inside/Out</li>
+            <li>Dust Light Fixtures</li>
+            <li>Clean Table & Chairs</li>
+            <li>Dust Furniture</li>
+            <li>Dust & Spot Clean Glass</li>
+            <li>Make Beds/Change Linens</li>
+            <li>Clean Mirrors</li>
+            <li>Dust Nightstands/Dressers</li>
+            <li>Vacuum</li>
+            <li>Mop</li>
+            <li>Fluff Pillows</li>
+            <li>Re-stage Bed</li>
+            <li>Dust Ceiling Fans</li>
+            <li>Dust Baseboards</li>
+            <li>Empty Garbage</li>
+            <li>Clean Counters, Sink, & Cabinets</li>
+            <li>Polish Fixtures</li>
+            <li>Clean Toilet Inside & Out</li>
+            <li>Clean Shower And/Or Bathtub</li>
+            <li>Straighten or Replace Towels</li>
+          </ul>
+
+          <p class="subheading my-16 text-center italic">
+            Our DEEP cleans...are more thorough and customizable to each home!
+          </p>
+        </div>
+      </article>
+
+      <hr class="w-full h-px bg-black my-16" />
+
+      <article id="reasons" class="flex justify-center my-16">
+        <div class="container flex flex-col items-center justify-center">
+          <p class="great-vibes text-center sm:w-[36rem] md:w-fit">
+            With Dirty Beach you can live stress free knowing that...
+          </p>
+
+          <div
+            class="mt-8 flex flex-col items-center justify-center gap-4 md:flex-row md:items-start lg:gap-8"
+          >
+            <div
+              class="flex flex-col items-center justify-center box-border p-4 gap-2 bg-white rounded-3xl border-2 shadow-md w-72 md:w-56 md:h-56 lg:w-72 lg:h-72"
+            >
+              <img
+                class="h-16 drop-shadow-lg xl:h-20"
+                src="static/images/decorations/starfish.svg"
+                alt=""
+              />
+              <p class="body text-center">
+                your home is getting a quality clean we're proud of. WE
+                GUARANTEE IT!
+              </p>
             </div>
-        </article>
-        
-        
 
+            <div
+              class="flex flex-col items-center justify-center box-border p-4 gap-2 bg-white rounded-3xl border-2 shadow-md w-72 md:w-56 md:h-56 lg:w-72 lg:h-72"
+            >
+              <img
+                class="h-16 drop-shadow-lg xl:h-20"
+                src="static/images/decorations/palm-tree-bullet.svg"
+                alt=""
+              />
+              <p class="body text-center">
+                all of our products are eco-friendly and sustainably sourced.
+              </p>
+            </div>
+
+            <div
+              class="flex flex-col items-center justify-center box-border p-4 gap-2 bg-white rounded-3xl border-2 shadow-md w-72 md:w-56 md:h-56 lg:w-72 lg:h-72"
+            >
+              <div class="flex">
+                <img
+                  class="-mr-4 h-16 drop-shadow-lg xl:h-20"
+                  src="static/images/decorations/seahorse.svg"
+                  alt=""
+                />
+                <img
+                  class="-ml-4 h-16 -scale-x-100 drop-shadow-xl xl:h-20"
+                  src="static/images/decorations/seahorse.svg"
+                  alt=""
+                />
+              </div>
+              <p class="body text-center">
+                our dependable team cares for you and your property, because we
+                care!
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <div class="py-16 w-full bg-blue-500">
+        <p class="great-vibes text-center text-white">
+          We keep you<br class="sm:hidden" />
+          Beachy Clean!
+        </p>
+      </div>
+
+      <!-- IMAGE CAROUSEL -->
+      <article id="carousel" class="my-16 flex justify-center px-4">
+        <div class="container flex flex-col items-center justify-center">
+          <p class="great-vibes text-center">We Love What We Do...</p>
+          <p class="body mb-8 mt-8 text-center md:w-2/3">
+            "We take pride in our work and it shows!" From Vacation Properties
+            to Private Homes, these photos represent just a small illustration
+            of our dedication and hard work provided just for you.
+          </p>
+          <div
+            class="relative mx-auto max-w-4xl"
+            x-data="{ activeSlide: 1, slides: [1, 2, 3, 4, 5, 6, 7] }"
+          >
+            <!-- Slides -->
+            <template x-for="slide in slides" :key="slide">
+              <div
+                x-show="activeSlide === slide"
+                class="flex h-[40rem] items-center rounded-lg 2xl:h-[45rem]"
+              >
+                <img
+                  class="h-[40rem] w-[40rem] content-center object-cover 2xl:h-[45rem] 2xl:w-[45rem] rounded-xl"
+                  :src="'static/images/real-homes/home' + slide + '.jpeg'"
+                  alt=""
+                />
+              </div>
+            </template>
+            <!-- Prev/Next Arrows -->
+            <div class="absolute inset-0 flex">
+              <div class="flex w-1/2 items-center justify-start">
+                <button
+                  class="-ml-6 h-12 w-12 rounded-full bg-teal-100 text-teal-500 hover:text-orange-500 hover:shadow-lg"
+                  x-on:click="activeSlide = activeSlide === 1 ? slides.length : activeSlide - 1"
+                >
+                  &#8592;
+                </button>
+              </div>
+              <div class="flex w-1/2 items-center justify-end">
+                <button
+                  class="-mr-6 h-12 w-12 rounded-full bg-teal-100 text-teal-500 hover:text-orange-500 hover:shadow"
+                  x-on:click="activeSlide = activeSlide === slides.length ? 1 : activeSlide + 1"
+                >
+                  &#8594;
+                </button>
+              </div>
+            </div>
+            <!-- Buttons -->
+            <div class="absolute flex w-full items-center justify-center px-4">
+              <template x-for="slide in slides" :key="slide">
+                <button
+                  class="mx-2 mb-0 mt-4 h-2 w-4 flex-1 overflow-hidden rounded-full transition-colors duration-200 ease-out hover:bg-teal-600 hover:shadow-lg"
+                  :class="{ 'bg-green-500': activeSlide === slide, 'bg-teal-300': activeSlide !== slide }"
+                  x-on:click="activeSlide = slide"
+                ></button>
+              </template>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <div class="py-16 w-full bg-blue-500">
+        <p class="great-vibes text-center text-white px-4">
+          Free Quotes!<br />Head to our
+          <a href="contact.html" class="italic text-4xl">contact page</a> to get started!
+        </p>
+      </div>
+
+      <article class="flex flex-col items-center my-16 gap-8">
+        <p class="great-vibes text-center">Explanation of<br> our services:</p>
+
+        <div class="container px-4">
+          <!-- FIRST ACCORDION ITEM -->
+          <details>
+            <summary
+              class="flex items-center justify-between w-full p-5 border border-gray-200 rounded-t-xl gap-3 hover:cursor-pointer"
+            >
+              <p>What is a Maintenance Clean?</p>
+              <svg
+                class="w-3 h-3 rotate-180"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 10 6"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5 5 1 1 5"
+                />
+              </svg>
+            </summary>
+            <div class="p-5 border border-gray-200">
+              <p>
+                We come and maintain the cleanliness of your home on a weekly,
+                bi-weekly, or monthly basis.
+              </p>
+            </div>
+          </details>
+
+          <!-- SECOND ACCORDION ITEM -->
+          <details>
+            <summary
+              class="flex items-center justify-between w-full p-5 border border-gray-200 gap-3"
+            >
+              What is a Deep Clean?
+              <svg
+                class="w-3 h-3 rotate-180"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 10 6"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5 5 1 1 5"
+                />
+              </svg>
+            </summary>
+            <div class="p-5 border border-gray-200">
+              <p>
+                We go a bit further than the maintenance clean and go literally
+                above and beyond. (Ex: wash baseboards, windows, ceiling fans,
+                internal fridge, ovens etc.)
+              </p>
+            </div>
+          </details>
+
+          <!-- THIRD ACCORDION ITEM -->
+          <details>
+            <summary
+              class="flex items-center justify-between w-full p-5 border border-gray-200 gap-3"
+            >
+              What is Property Maintenance?
+              <svg
+                class="w-3 h-3 rotate-180"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 10 6"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5 5 1 1 5"
+                />
+              </svg>
+            </summary>
+            <div class="p-5 border border-gray-200">
+              <p>
+                We take care of your home while you're away. Trash need to go
+                out? Lawn needs picked up? Faucet leaking? We maintain your
+                home.
+              </p>
+            </div>
+          </details>
+
+          <!-- FOURTH ACCORDION ITEM -->
+          <details>
+            <summary
+              class="flex items-center justify-between w-full p-5 border border-gray-200 gap-3"
+            >
+              What is Client Pet Sitting?
+              <svg
+                class="w-3 h-3 rotate-180"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 10 6"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5 5 1 1 5"
+                />
+              </svg>
+            </summary>
+            <div class="p-5 border border-gray-200">
+              <p>
+                If you are already a client we can take care of your pet while
+                away. We can do in-home or drop-in care. (We also take client
+                referrals for pet sitting as well.)
+              </p>
+            </div>
+          </details>
+        </div>
+      </article>
     </main>
 
     <!-- <footer class="bg-orange-200 shadow-inner flex flex-col items-center py-8 gap-8">
@@ -318,24 +522,31 @@
 
     </footer> -->
 
-
-
     <footer class="bg-orange-200 rounded-lg shadow m-4">
-
-        <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-            <span class="text-sm text-gray-500 sm:text-center ">© 2023 <a href="index.html" class="hover:underline">DBA Dirty Beach Laundry and Cleaning Service LLC</a>. All Rights Reserved.</span>
-            <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
-                <li>
-                    <a href="https://www.facebook.com/dirtybeachlaundry" class="hover:underline me-4 md:me-6">Facebook</a>
-                </li>
-                <li>
-                    <a href="contact.html" class="hover:underline">Contact</a>
-                </li>
-            </ul>
-        </div>
-
+      <div
+        class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between"
+      >
+        <span class="text-sm text-gray-500 sm:text-center"
+          >© 2023
+          <a href="index.html" class="hover:underline"
+            >DBA Dirty Beach Laundry and Cleaning Service LLC</a
+          >. All Rights Reserved.</span
+        >
+        <ul
+          class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0"
+        >
+          <li>
+            <a
+              href="https://www.facebook.com/dirtybeachlaundry"
+              class="hover:underline me-4 md:me-6"
+              >Facebook</a
+            >
+          </li>
+          <li>
+            <a href="contact.html" class="hover:underline">Contact</a>
+          </li>
+        </ul>
+      </div>
     </footer>
-
-</body>
-
+  </body>
 </html>
