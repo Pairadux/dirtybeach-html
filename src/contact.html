@@ -3,35 +3,48 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Dirty Beach | Contact</title>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/output.css">
 </head>
 
-<!-- FIXME: Make whole page responsive -->
 <body>
 
-    <!-- FIXME: Make navbar consistent with main page -->
-    <!-- NAVIGATION -->
-    <nav class="bg-white flex justify-between sticky top-0 z-50 items-center box-border h-[10vh] px-8 shadow-md">
+    <nav class="sticky top-0 z-50 flex justify-center bg-[#ffffff] md:shadow-lg overflow-hidden">
 
-        <a href="index.html"><img class="h-16" src="static/images/logo_no_sub.png" alt=""></a>
+        <!-- Nav Wrapper -->
+        <div class="container" x-data="{ open: false, get isMobile() { return screen.width < 768 } }">
 
-        <!-- 
-        <div class="flex flex-row gap-8 items-center">
-            <a class="text-black font-light text-lg hover:text-blue-500" href="index.html#services">Services</a>
-            <a class="text-black font-light text-lg hover:text-blue-500" href="#reviews">Reviews</a>
-            <a class="text-black font-light text-lg hover:text-blue-500" href="#about-me">About Me</a>
-        </div> -->
+            <!-- Responsive Nav Element -->
+            <div :class="open ? 'h-screen' : 'h-fit'"  class=" relative flex w-full flex-col justify-start gap-16 md:flex-row md:items-center md:justify-between">
 
-        <div class="flex gap-4 items-center">
-            <a class="h-fit w-fit font-light text-lg" href="tel:8503298814"><span></span><img
-                    src="static/images/decorations/phone.svg" alt="" class="h-6 inline-block mr-2">Call (850)
-                329-8814</a>
-            <a class="px-4 py-2 h-fit w-fit bg-sky-500 rounded-full text-white font-light text-lg"
-                href="contact.html">Contact Us</a>
-            <!-- <a class="px-4 py-2 h-fit w-fit bg-sky-500 rounded-full text-white font-light text-lg" href="https://www.facebook.com/dirtybeachlaundry">Facebook</a> -->
+                <!-- Brand with mobile menu button -->
+                <ul :class="open ? 'shadow-lg' : 'shadow-none'" class="flex h-fit w-full items-center justify-between px-6 md:w-fit">
+                    <li><a href="index.html"><img class="h-20" src="static/images/logo_no_sub.png" alt="" /></a></li>
+                    <li><button class="rounded-full bg-blue-500 px-6 py-3 text-lg text-white h-fit w-fit md:hidden" @click="open = !open">Menu</button></li>
+                </ul>
+
+                <!-- Nav Items -->
+                <ul class="flex w-full flex-col items-center gap-16 md:w-fit md:h-fit md:flex-row md:pr-6 md:gap-4" x-cloak x-show="open || !isMobile" x-data="{urls: [
+                    { id: 1, url: 'index.html', text: 'Home' },
+                    { id: 2, url: '#company-bio', text: 'About' },
+                    { id: 3, url: '#checklist', text: 'Services' },
+                    { id: 4, url: '#carousel', text: 'Gallery' },
+                    { id: 5, url: 'contact.html', text: 'Contact' },
+                    { id: 6, url: 'https://www.facebook.com/dirtybeachlaundry', text: 'Facebook' }
+                    ]}">
+                    <template x-for="url in urls" :key="url.id">
+                        <li><a class="h-fit w-fit text-3xl md:text-lg" :href="url.url" x-text="url.text" @click="open = false"></a></li>
+                    </template>
+                    <svg class="absolute bottom-0 w-[200vw] -z-10 md:hidden" id="visual" viewBox="0 0 768 200" width="768" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><path d="M0 78L32 88.7C64 99.3 128 120.7 192 117.3C256 114 320 86 384 68.2C448 50.3 512 42.7 576 51C640 59.3 704 83.7 736 95.8L768 108L768 201L736 201C704 201 640 201 576 201C512 201 448 201 384 201C320 201 256 201 192 201C128 201 64 201 32 201L0 201Z" fill="#3b82f6" stroke-linecap="round" stroke-linejoin="miter"></path></svg>
+                </ul>
+
+            </div>
+            
         </div>
 
     </nav>
