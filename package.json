@@ -5,11 +5,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "tailwindcss -i ./src/static/css/input.css -o ./src/static/css/output.css --watch",
-    "build": "tailwindcss -i ./src/static/css/input.css -o ./src/static/css/output.css"
+    "build": "tailwindcss -i ./src/static/css/input.css -o ./src/static/css/output.css",
+    "deploy": "gh-pages -d src --cname dirtybeachcleans.com"
   },
   "author": "Austin Gause",
   "license": "ISC",
   "devDependencies": {
+    "gh-pages": "^6.1.1",
     "tailwindcss": "^3.3.6"
   }
 }
