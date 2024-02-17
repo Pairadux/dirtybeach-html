@@ -1,0 +1,16 @@
+@tailwind base; @tailwind components; @tailwind utilities;
+[x-cloak] { display: none !important; }
+
+* { font-family: 'Libre Baskerville', serif; }
+
+p { @apply text-[#212427]}
+
+.great-vibes { @apply font-['Great_Vibes'] text-5xl leading-tight; }
+
+.heading { @apply text-xl lg:text-4xl;}
+.subheading { @apply text-lg lg:text-2xl;}
+.body { @apply text-base lg:text-lg; }
+.subtitle { @apply text-sm; }
+
+#checklist > p { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important; }
+#checklist > li { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important; }
